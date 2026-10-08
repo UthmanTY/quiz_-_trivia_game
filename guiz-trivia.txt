@@ -1,0 +1,53 @@
+The program starts.
+The user gets a Welcome message.
+The program gets the different categories with their questions.
+The categories are displayed to the user for them to pick their preferred choice.
+Then the questions are displayed to the user with the options.
+The user picks an option
+The program checks if the option the user selects is valid.
+The program updates the score if the option is correct or not.
+After the user answers all the questions, the program updates the score and displays the user's score.
+The program asks the user if they will like to play again.
+
+
+play_game(categories)
+    │
+    ├── select_category(categories)
+    │       ↓
+    │   selected_category
+    │
+    └── display_result(...)
+
+
+score = 0
+      ↓
+copy questions
+      ↓
+shuffle the copy
+      ↓
+loop through random_questions
+      ↓
+display question
+      ↓
+display numbered options
+      ↓
+get user's choice
+      ↓
+validate choice
+      ↓
+convert choice to index
+      ↓
+get selected option
+      ↓
+compare with correct answer
+      ↓
+if correct → score += 1
+      ↓
+return score
+
+It should initiate the score to zero, then it should create a copy of the questions and randomize that copy.
+It should loop through the randomized questions and display each question with their numbered options The 
+program gets the user's choice and validates it. Then it converts that choice to an index and gets the selected option.
+It compares it with the answer and if the answer is correct, the score is incremented by 1 and the score is returned after answering all the questions.
+
+

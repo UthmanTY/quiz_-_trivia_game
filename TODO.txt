@@ -1,0 +1,2 @@
+1. Tell user to use a number to select categorry
+2. Indicate the wrong answers
