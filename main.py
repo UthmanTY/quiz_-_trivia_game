@@ -21,9 +21,9 @@ def play_game(categories):
 
         questions = select_category(categories)
 
-        score, total_questions = quiz(questions)
+        score, total_questions, incorrect_answers = quiz(questions)
 
-        display_result(score, total_questions)
+        display_result(score, total_questions, incorrect_answers)
 
         while True:
 

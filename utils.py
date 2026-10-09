@@ -29,6 +29,7 @@ def select_category(categories):
 def quiz(questions):
 
     score = 0
+    incorrect_answers = []
 
     copy_questions = list(questions)
     random.shuffle(copy_questions)
@@ -67,10 +68,18 @@ def quiz(questions):
         if selected_choice == question['answer']:
 
             score += 1
-            
-    return score, len(copy_questions)
+        else:
 
-def display_result(score, total_questions):
+           incorrect_answer = {
+                "question": question['question'],
+                "selected_answer": selected_choice,
+                "correct_answer": question['answer']
+            }
+           incorrect_answers.append(incorrect_answer)
+            
+    return score, len(copy_questions), incorrect_answers
+
+def display_result(score, total_questions, incorrect_answers):
 
     print("--------------------")
     print("Quiz Complete!")
@@ -80,6 +89,16 @@ def display_result(score, total_questions):
     wrong = total_questions - score
 
     print(f"You got {score} correct and {wrong} incorrect.")
+    print()
+    if incorrect_answers:
+        print("Incorrect Answers:")
+        print()
+        for index, incorrect_answer in enumerate(incorrect_answers, start=1):
+
+            print(f"{index}. {incorrect_answer['question']}")
+            print(f"   Your answer: {incorrect_answer['selected_answer']}")
+            print(f"   Correct answer: {incorrect_answer['correct_answer']}")
+            print()
 
 def load_questions(file_name):
     try:
